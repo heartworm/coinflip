@@ -1,0 +1,69 @@
+.card {
+    padding: 10px;
+    background: rgb(245,245,245);
+}
+
+body {
+    background: rgb(225, 219, 219);
+}
+
+.error-bar {
+    background: rgb(117, 25, 25);
+    padding: 5px 10px;
+    color: rgb(245,245,245);
+    animation-name: error;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+}
+
+@keyframes error {
+    from {
+        background: rgb(255, 0, 0);  
+    }
+    to {
+        background: rgb(117, 25, 25);
+    }
+}
+
+@media (min-width: 550px) {
+    .card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .left {
+        align-items: right;
+        padding-right: 20px;
+        text-align: right;
+        border-right-width: 10px;
+    }
+
+    .right {
+        align-items: left;
+        text-align: left;
+        padding-left: 20px;
+    }
+}
+
+.invert {
+    background: rgb(34,34,34);
+    color: rgb(245,245,245);
+}
+
+.main-row {
+    margin: 10% 0;
+}
+
+.result li {
+    margin-bottom: 0;
+}
+.result header h1 {
+    margin-bottom: 0;
+}
+.result header {
+    margin-bottom: 20px;
+}
+
+

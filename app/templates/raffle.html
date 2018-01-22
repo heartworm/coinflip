@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta charset="utf-8">
+	<title>Raffly</title>
+	<meta name="description" content="An online Raffle service">
+	<meta name="author" content="Shravan Lal">
+
+	<!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+	<!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="stylesheet" href="/static/css/main.css">
+	<link rel="stylesheet" href="/static/lib/skeleton-css/css/normalize.css">
+	<link rel="stylesheet" href="/static/lib/skeleton-css/css/skeleton.css">
+
+	<!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="icon" type="image/png" href="/static/img/favicon.png">
+
+</head>
+
+<body>
+
+	<!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<div class="container">
+		<article class="u-full-width card result">
+			<header>
+					<h1>Raffle Results</h1>
+					<small>ID: {{ raffle.raffle_id }}</small>
+			</header>
+			<p>
+				<strong>Result: </strong>{{raffle.result}}<br/>
+				<strong>Created at: </strong>{{raffle.timestamp}}<br/>
+				<strong>Expires at: </strong>{{raffle.expiry}}<br/>
+			</p>
+			<ul>
+					
+				<strong>Raffle Contenders</strong><br/>	
+				{% for choice in raffle.choices %}
+					<li>{{choice}}</li>
+				{% endfor %}
+			</ul>
+		</article>
+	</div>
+
+	<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+</html>

@@ -6,7 +6,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Your page title here :)</title>
+  <title>Raffly</title>
   <meta name="description" content="An online Raffle service">
   <meta name="author" content="Shravan Lal">
 
@@ -20,6 +20,7 @@
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="/static/css/main.css">
   <link rel="stylesheet" href="/static/lib/skeleton-css/css/normalize.css">
   <link rel="stylesheet" href="/static/lib/skeleton-css/css/skeleton.css">
 
@@ -34,14 +35,60 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
-    <div class="row">
-      <div class="one-half column" style="margin-top: 25%">
-        <h4>Basic Page</h4>
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content!
-          If you need some help hit up the
-          <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
-      </div>
-    </div>
+    <section class="row main-row">
+      <article class="one-half column card left invert">
+        <header>
+          <h1>Raffly</h1>
+        </header>
+        <p>
+          Decide as a group on a random identifier.
+          <br> Randomly choose from a list of items.
+          <br> Let others view the result with confidence the raffle was performed only once.
+        </p>
+        <section>
+          <header>
+            <h2>Where?</h2>
+          </header>
+          <ul>
+            <li>Deciding something in a group chat</li>
+            <li>Choosing the winner of an online giveaway</li>
+          </ul>
+        </section>
+      </article>
+      <article class="one-half column card right">
+        <header>
+          <h2>Create</h2>
+        </header>
+        {% if error %}
+          <p class="u-full-width error-bar">
+            <span>{{ error }}</span>
+          </p>
+        {% endif %}
+        <form class="u-full-width" action="/raffle/" method="POST">
+
+          <label for="raffle_id">Your Pre-Agreed Raffle ID</label>
+          <input class="u-full-width" name="raffle_id" type="text" max-length="255">
+
+          <label for="max_age">Raffle Expiry</label>
+          <select class="u-full-width" name="max_age">
+            <option value="3600" selected>One Hour</option>
+            <option value="86400" selected>One Day</option>
+            <option value="604800" selected>One Week</option>
+          </select>
+
+          <label for="choices">Choices, each on a different line.</label>
+          <textarea class="u-full-width" name="choices"></textarea>
+
+          <label for="deduplicate">
+            <input type="checkbox" name="deduplicate" />
+            <span class="label-body">Remove Duplicates?</span>
+          </label>
+
+          <input class="u-full-width" type="submit" value="Create">
+
+        </form>
+      </article>
+    </section>
   </div>
 
   <!-- End Document
